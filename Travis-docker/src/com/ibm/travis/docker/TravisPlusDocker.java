@@ -6,7 +6,7 @@ public class TravisPlusDocker {
 		// TODO Auto-generated method stub
 		System.out.println("======================\n");
 		System.out.println("Hello Travis!!!");
-		System.out.println("======================\n");
+		System.out.println("======================");
 	}
 
 }
