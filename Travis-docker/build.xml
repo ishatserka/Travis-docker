@@ -1,0 +1,27 @@
+<project default="run">
+	
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+	
+    <target name="compile" depends="clean">
+    	<mkdir dir="build/classes"/>    	
+        <javac sourcepath="e:\git\Travis-docker\Travis-docker\" srcdir="src" destdir="build/classes">
+        	<include name="**/*.java"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/TravisPlusDocker.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="com.ibm.travis.docker.TravisPlusDocker"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="build/jar/TravisPlusDocker.jar" fork="true"/>
+    </target>
+
+</project>
